@@ -1,0 +1,23 @@
+[package]
+name = "avail-fixer"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+base58 = "0.2.0"
+scale-encode = "0.5.0"
+blake2b_simd = "1.0.2"
+subxt-metadata = "0.34.0"
+parity-scale-codec = { version = "3.6.9", default-features = false }
+subxt-signer ={ version = "0.34", default-features = false, features = ["sr25519", "native"] }
+async-trait = "0.1.83"
+anyhow = "1.0.94"
+jsonrpsee = { version = "0.23", default-features = false, features = ["ws-client"] }
+backon = "0.4.4"
+bytes = "1.9.0"
+serde = { version = "1.0.216", features = ["derive"] }
+hex = "0.4.3"
+blake2 = "0.10"
+reqwest = { version = "0.12.9", features = ["json"] }
+sqlx = { version = "0.7.3", features = ["postgres", "runtime-tokio", "tls-native-tls"] }
+tokio = { version = "1.40.0", features = ["full"] }
