@@ -22,6 +22,7 @@ async fn main() -> anyhow::Result<()> {
         .connect(db_url)
         .await?;
 
+    // let app_id = env::var("APP_ID")?.parse::<u32>()?;
     let app_id = 17;
     let api_url = "wss://turing-rpc.avail.so/ws".to_string();
     let seed = "";
@@ -57,7 +58,7 @@ async fn main() -> anyhow::Result<()> {
         println!("blob_id: {:?}", blob_id);
 
         sqlx::query("UPDATE data_availability
-            SET blob_id = $1
+            SET blob_id = $1, updated_at = NOW()
             WHERE l1_batch_number = $2")
             .bind(blob_id)
             .bind(l1_batch_number )
